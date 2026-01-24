@@ -1,10 +1,4 @@
 function solution(sides) {
-    let sum = 0;
-    const long = Math.max(...sides)
-    sides.map((s, i) => {
-        if (i !== sides.indexOf(long)) {
-            sum += s
-        }
-    })
-    return long < sum ? 1 : 2
+    const arr = sides.sort((a, b) => a - b)
+    return sides[2] < sides[0] + sides[1] ? 1 : 2
 }
