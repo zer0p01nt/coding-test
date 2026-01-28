@@ -1,16 +1,4 @@
 function solution(numbers) {
-    let max = -Infinity;
-
-    for(let i = 0; i < numbers.length; i++){
-        for(let j = 0; j < numbers.length; j++){
-            if (max < (numbers[i] * numbers[j]) && numbers.indexOf(numbers[i]) != numbers.lastIndexOf(numbers[j])){
-
-                max = (numbers[i] * numbers[j]);
-
-            }
-        }
-    }
-
-
-    return max;
+    numbers.sort((a, b) => a - b);
+    return Math.max(numbers[0] * numbers[1], numbers[numbers.length-1] * numbers[numbers.length-2]);
 }
