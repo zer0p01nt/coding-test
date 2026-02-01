@@ -1,19 +1,7 @@
 function solution(score) {
-    let answer = [];
-    let ranking = 1;
-    for (let i = 0; i < score.length; i++){
-
-        for (let j = 0; j < score.length; j++){ 
-            if ((score[i][0] + score[i][1]) < (score[j][0] + score[j][1])){
-                ranking++;
-            } else if ((score[i][0] + score[i][1]) === (score[j][0] + score[j][1])){
-                continue;
-            } 
-
-        } 
-        answer.push(ranking);
-        ranking = 1;
-    }
-
-    return answer;
+    return score.map((el) => {
+        return (
+            score.filter((v) => (v[0] + v[1]) / 2 > (el[0] + el[1]) / 2).length + 1
+        );
+    });
 }
