@@ -1,0 +1,10 @@
+const fs = require("fs");
+const path = require("path");
+
+const filePath =
+  process.platform === "linux" ? 0 : path.join(__dirname, "input.txt");
+
+const input = fs.readFileSync(filePath).toString().trim();
+const inputArr = input === "" ? [] : input.split(/\s+/).map(Number);
+
+console.log(inputArr[0] * inputArr[1]);
